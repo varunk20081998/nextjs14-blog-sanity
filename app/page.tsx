@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+export const revalidate = 30; //revalidate fetch call ever 30s
+
 const getData = async () => {
   const query = `*[_type=='blog']|order(_createdAt desc){title,smallDescription,"currentSlug":slug.current,titleImage}`;
   const data = await client.fetch(query);
